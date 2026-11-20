@@ -1,0 +1,191 @@
+/* O Mestre do Sushi — preto com pontos vermelhos, sem animações */
+:root {
+  --preto: #000;
+  --preto-2: #0b0b0b;
+  --preto-3: #141414;
+  --linha: #262626;
+  --vermelho: #e10600;
+  --branco: #f4f1ec;
+  --cinza: #9a9590;
+  --serif: "Shippori Mincho", Georgia, serif;
+  --sans: "Zen Kaku Gothic New", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; }
+body {
+  background: var(--preto);
+  color: var(--branco);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.red { color: var(--vermelho); }
+
+/* ponto vermelho — o elemento de marca */
+.dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--vermelho);
+  flex: none;
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  background: var(--vermelho);
+  color: #fff;
+  font-weight: 700;
+  padding: 15px 28px;
+  border: 2px solid var(--vermelho);
+  border-radius: 999px;
+  font-size: 16px;
+}
+.btn:hover { background: #b80500; border-color: #b80500; }
+.btn-ghost { background: transparent; color: var(--branco); border-color: var(--linha); }
+.btn-ghost:hover { background: transparent; border-color: var(--vermelho); }
+.btn-sm { padding: 10px 20px; font-size: 14px; }
+
+/* Topo */
+.topo {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(0,0,0,.92);
+  border-bottom: 1px solid var(--linha);
+}
+.topo-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 800; font-size: 22px; }
+.logo em { font-style: normal; color: var(--vermelho); }
+.logo .dot { width: 14px; height: 14px; }
+.menu { display: flex; gap: 32px; font-size: 15px; color: var(--cinza); }
+.menu a:hover { color: var(--branco); }
+
+/* Hero */
+.hero { padding: 72px 0 96px; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.tag, .kicker {
+  display: flex; align-items: center; gap: 10px;
+  text-transform: uppercase; letter-spacing: .18em;
+  font-size: 13px; font-weight: 700; color: var(--cinza);
+  margin-bottom: 22px;
+}
+h1, h2, h3 { font-family: var(--serif); font-weight: 800; line-height: 1.1; }
+h1 { font-size: clamp(44px, 6.4vw, 84px); letter-spacing: -.01em; }
+h2 { font-size: clamp(34px, 4.4vw, 56px); }
+.lead { margin-top: 26px; font-size: 19px; color: var(--cinza); max-width: 480px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+.hero-stats { list-style: none; display: flex; gap: 40px; margin-top: 52px; padding-top: 28px; border-top: 1px solid var(--linha); }
+.hero-stats li { display: flex; flex-direction: column; }
+.hero-stats strong { font-family: var(--serif); font-size: 34px; line-height: 1; }
+.hero-stats span { font-size: 14px; color: var(--cinza); margin-top: 6px; }
+
+.hero-img { position: relative; }
+.hero-img img { position: relative; width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; }
+.sol {
+  position: absolute; z-index: 0;
+  width: 46%; aspect-ratio: 1; border-radius: 50%;
+  background: var(--vermelho);
+  top: -36px; right: -36px;
+}
+
+/* Faixa */
+.faixa { background: var(--vermelho); color: #fff; }
+.faixa-inner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 18px 28px; padding-top: 18px; padding-bottom: 18px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .14em; font-size: 14px;
+}
+.faixa .dot { background: #000; width: 8px; height: 8px; }
+
+/* Seções */
+.secao { padding: 110px 0; }
+.titulo { max-width: 680px; margin-bottom: 56px; }
+.sub { margin-top: 18px; color: var(--cinza); }
+
+/* Cardápio */
+.pratos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.prato { background: var(--preto-2); border: 1px solid var(--linha); border-radius: 4px; overflow: hidden; }
+.prato img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+.prato-info { padding: 22px 22px 26px; }
+.num { display: inline-flex; align-items: center; gap: 8px; color: var(--vermelho); font-weight: 700; font-size: 13px; letter-spacing: .1em; }
+.num::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--vermelho); }
+.prato h3 { font-size: 24px; margin: 8px 0 8px; }
+.prato p { font-size: 15px; color: var(--cinza); }
+
+/* Destaque */
+.destaque { background: var(--preto-2); border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); padding: 100px 0; }
+.destaque-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.destaque-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; }
+.destaque-txt > p { color: var(--cinza); margin: 24px 0; }
+.lista { list-style: none; margin-bottom: 34px; }
+.lista li { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--linha); }
+
+/* Galeria */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  gap: 16px;
+}
+.galeria img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.galeria .g-alta { grid-row: span 2; }
+
+/* Avaliações */
+.avaliacoes { background: var(--preto-2); border-top: 1px solid var(--linha); }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card {
+  background: var(--preto); border: 1px solid var(--linha); border-left: 4px solid var(--vermelho);
+  border-radius: 4px; padding: 32px 28px;
+}
+.card p { font-family: var(--serif); font-size: 20px; line-height: 1.45; }
+.card .stars { font-family: var(--sans); color: var(--vermelho); font-size: 16px; letter-spacing: .15em; margin-bottom: 14px; }
+.card cite { display: block; margin-top: 18px; font-style: normal; font-size: 14px; color: var(--cinza); }
+
+/* Local */
+.local-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: stretch; }
+.local-info h2 { margin-bottom: 36px; }
+.bloco { padding: 20px 0; border-top: 1px solid var(--linha); }
+.bloco h3 { font-family: var(--sans); font-size: 13px; text-transform: uppercase; letter-spacing: .16em; color: var(--vermelho); margin-bottom: 8px; }
+.bloco a:hover { color: var(--vermelho); }
+.horarios { border-collapse: collapse; width: 100%; max-width: 360px; }
+.horarios td { padding: 4px 0; }
+.horarios td:last-child { text-align: right; color: var(--cinza); }
+.local-info .btn { margin-top: 24px; }
+.mapa { min-height: 420px; border: 1px solid var(--linha); border-radius: 4px; overflow: hidden; }
+.mapa iframe { width: 100%; height: 100%; min-height: 420px; border: 0; filter: grayscale(1) invert(.92) contrast(.9); }
+
+/* Rodapé */
+.rodape { border-top: 1px solid var(--linha); padding: 48px 0; }
+.rodape-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; color: var(--cinza); font-size: 15px; }
+.rodape .logo { color: var(--branco); }
+.mini { width: 100%; font-size: 13px; color: #5f5b57; }
+
+/* Responsivo */
+@media (max-width: 1000px) {
+  .pratos { grid-template-columns: repeat(2, 1fr); }
+  .cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .menu { display: none; }
+  .hero { padding: 44px 0 72px; }
+  .hero-grid, .destaque-grid, .local-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-img { max-width: 480px; margin-right: 24px; }
+  .sol { top: -20px; right: -20px; }
+  .secao, .destaque { padding: 80px 0; }
+  .galeria { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+}
+@media (max-width: 520px) {
+  .wrap { padding: 0 16px; }
+  body { font-size: 16px; }
+  .logo { font-size: 19px; }
+  .pratos { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; }
+  .hero-stats strong { font-size: 28px; }
+  .galeria { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+  .galeria .g-alta { grid-row: span 1; }
+  .faixa-inner { font-size: 12px; gap: 10px 16px; }
+}
